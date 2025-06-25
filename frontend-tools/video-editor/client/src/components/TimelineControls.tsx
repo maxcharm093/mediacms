@@ -189,7 +189,7 @@ const TimelineControls = ({
         // Format the timestamp for display
         const date = new Date(response.timestamp);
         const formattedTime = date
-          .toLocaleString("en-US", {
+          .toLocaleString("en-GB", {
             year: "numeric",
             month: "2-digit",
             day: "2-digit",
@@ -1184,7 +1184,7 @@ const TimelineControls = ({
           if (savedData.updated_at) {
             const date = new Date(savedData.updated_at);
             const formattedTime = date
-              .toLocaleString("en-US", {
+              .toLocaleString("en-GB", {
                 year: "numeric",
                 month: "2-digit",
                 day: "2-digit",
