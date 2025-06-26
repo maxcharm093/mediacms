@@ -49,7 +49,7 @@ export const autoSaveVideo = async (
   data: AutoSaveRequest
 ): Promise<AutoSaveResponse> => {
   try {
-    const response = await fetch(`/api/v1/media/${mediaId}/auto_save`, {
+    const response = await fetch(`/api/v1/media/${mediaId}/save_trim`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
