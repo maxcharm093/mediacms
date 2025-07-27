@@ -358,7 +358,7 @@ def publish_media(request):
 def edit_chapters(request):
     """Edit chapters"""
     # not implemented yet
-    return False
+    # return False
     friendly_token = request.GET.get("m", "").strip()
     if not friendly_token:
         return HttpResponseRedirect("/")
