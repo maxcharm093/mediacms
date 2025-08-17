@@ -190,8 +190,6 @@ def history(request):
 @csrf_exempt
 @login_required
 def video_chapters(request, friendly_token):
-    # this is not ready...
-    return False
     if not request.method == "POST":
         return HttpResponseRedirect("/")
 
@@ -300,8 +298,6 @@ def publish_media(request):
 @login_required
 def edit_chapters(request):
     """Edit chapters"""
-    # not implemented yet
-    return False
     friendly_token = request.GET.get("m", "").strip()
     if not friendly_token:
         return HttpResponseRedirect("/")
@@ -313,10 +309,11 @@ def edit_chapters(request):
     if not (request.user == media.user or is_mediacms_editor(request.user)):
         return HttpResponseRedirect("/")
 
+    chapters = media.chapter_data
     return render(
         request,
         "cms/edit_chapters.html",
-        {"media_object": media, "add_subtitle_url": media.add_subtitle_url, "media_file_path": helpers.url_from_path(media.media_file.path), "media_id": media.friendly_token},
+        {"media_object": media, "add_subtitle_url": media.add_subtitle_url, "media_file_path": helpers.url_from_path(media.media_file.path), "media_id": media.friendly_token, "chapters": chapters},
     )
 
 
